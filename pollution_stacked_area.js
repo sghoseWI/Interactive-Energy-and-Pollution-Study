@@ -63,7 +63,7 @@ svg1.append("text")
 // Add Y axis
 var y1 = d3.scaleLinear()
   .domain([0, 150])
-  .range([ height, 0 ]);
+  .range([ height1, 0 ]);
 svg1.append("g")
   .call(d3.axisLeft(y1).ticks(5))
 
