@@ -62,7 +62,7 @@ svg1.append("text")
 
 // Add Y axis
 var y1 = d3.scaleLinear()
-  .domain([0, 150])
+  .domain([0, 180])
   .range([ height1, 0 ]);
 svg1.append("g")
   .call(d3.axisLeft(y1).ticks(5))
@@ -144,69 +144,43 @@ function update1() {
   }
 
   //Legend rectangles and text
-  // svg1.append("rect")
-  //    .attr("y", 50)
-  //    .attr("x", 10)
-  //    .attr("width", 20)
-  //    .attr("height", 20)
-  //    .attr("fill","#777");
-  //
-  // svg1.append("text")
-  //    .attr("y", 65)
-  //    .attr("x", 40)
-  //    .style("font-size", "12px")
-  //    .text("Heat and Power (Commercial)");
-  //
-  // svg1.append("rect")
-  //   .attr("y", 50)
-  //   .attr("x", 200)
-  //   .attr("width", 20)
-  //   .attr("height", 20)
-  //   .attr("fill","#5287BB");
-  //
-  // svg1.append("text")
-  //   .attr("y", 65)
-  //   .attr("x", 230)
-  //   .style("font-size", "12px")
-  //   .text("Heat and Power (Electric)");
-  //
-  //   svg1.append("rect")
-  //     .attr("y", 50)
-  //     .attr("x", 380)
-  //     .attr("width", 20)
-  //     .attr("height", 20)
-  //     .attr("fill","#70B660");
-  //
-  // svg1.append("text")
-  //   .attr("y", 65)
-  //   .attr("x", 410)
-  //   .style("font-size", "12px")
-  //   .text("Heat and Power (Industrial)");
-  //
-  //   svg1.append("rect")
-  //     .attr("y", 50)
-  //     .attr("x", 560)
-  //     .attr("width", 20)
-  //     .attr("height", 20)
-  //     .attr("fill","#985CA8");
-  //
-  //   svg1.append("text")
-  //     .attr("y", 65)
-  //     .attr("x", 590)
-  //     .style("font-size", "12px")
-  //     .text("Electric Generators (Utilities)")
-  //
-  //   svg1.append("rect")
-  //     .attr("y", 50)
-  //     .attr("x", 740)
-  //     .attr("width", 20)
-  //     .attr("height", 20)
-  //     .attr("fill","orange");
-  //
-  //   svg1.append("text")
-  //     .attr("y", 65)
-  //     .attr("x", 770)
-  //     .style("font-size", "12px")
-  //     .text("Electric Generators (Independent Producers)");
+  svg1.append("rect")
+     .attr("y", 50)
+     .attr("x", 10)
+     .attr("width", 20)
+     .attr("height", 20)
+     .attr("fill","red");
+
+  svg1.append("text")
+     .attr("y", 65)
+     .attr("x", 40)
+     .style("font-size", "12px")
+     .text("Carbon Monoxide (CO)");
+
+  svg1.append("rect")
+    .attr("y", 50)
+    .attr("x", 200)
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("fill","blue");
+
+  svg1.append("text")
+    .attr("y", 65)
+    .attr("x", 230)
+    .style("font-size", "12px")
+    .text("Nitrogen Oxide (NOx)");
+
+    svg1.append("rect")
+      .attr("y", 50)
+      .attr("x", 380)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill","green");
+
+  svg1.append("text")
+    .attr("y", 65)
+    .attr("x", 410)
+    .style("font-size", "12px")
+    .text("Sulfur Dioxide (SO2)");
 
 })
