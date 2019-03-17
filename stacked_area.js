@@ -4,8 +4,8 @@
 
 //Set Margins
 var margin = {top: 20, right: 100, bottom: 100, left: 150},
-    width = 1000 - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom;
+    width = 1200 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
 
 //Define SVG
 var svg = d3.select("#stacked_area_plot")
@@ -136,11 +136,77 @@ function update() {
     stacked_area_chart.select(".brush").call(brush.move, null)
   }
 
-  xAxis.transition().duration(2000).call(d3.axisBottom(x).ticks(8))
+  xAxis.transition().duration(800).call(d3.axisBottom(x).ticks(8))
   stacked_area_chart
     .selectAll("path")
-    .transition().duration(2000)
+    .transition().duration(800)
     .attr("d", area)
   }
+
+  //Legend rectangles and text
+  svg.append("rect")
+     .attr("y", 50)
+     .attr("x", 10)
+     .attr("width", 20)
+     .attr("height", 20)
+     .attr("fill","#777");
+
+  svg.append("text")
+     .attr("y", 65)
+     .attr("x", 40)
+     .style("font-size", "12px")
+     .text("Heat and Power (Commercial)");
+
+  svg.append("rect")
+    .attr("y", 50)
+    .attr("x", 200)
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("fill","#5287BB");
+
+  svg.append("text")
+    .attr("y", 65)
+    .attr("x", 230)
+    .style("font-size", "12px")
+    .text("Heat and Power (Electric)");
+
+    svg.append("rect")
+      .attr("y", 50)
+      .attr("x", 380)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill","#70B660");
+
+  svg.append("text")
+    .attr("y", 65)
+    .attr("x", 410)
+    .style("font-size", "12px")
+    .text("Heat and Power (Industrial)");
+
+    svg.append("rect")
+      .attr("y", 50)
+      .attr("x", 560)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill","#985CA8");
+
+    svg.append("text")
+      .attr("y", 65)
+      .attr("x", 590)
+      .style("font-size", "12px")
+      .text("Electric Generators (Utilities)")
+
+    svg.append("rect")
+      .attr("y", 50)
+      .attr("x", 740)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill","orange");
+
+    svg.append("text")
+      .attr("y", 65)
+      .attr("x", 770)
+      .style("font-size", "12px")
+      .text("Electric Generators (Independent Producers)");
 
 })
