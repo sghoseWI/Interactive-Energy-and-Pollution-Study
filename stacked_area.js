@@ -75,7 +75,7 @@ svg.append("text")
 .attr("y", -70 )
 .attr("transform", "rotate(-90)")
 .style("text-decoration", "underline")
-.text("Total Number of PV Systems");
+.text("US Coal-based Energy Production (Gigawatts)");
 
 //Add Source
 svg.append("text")
@@ -122,5 +122,25 @@ stacked_area_chart
   .append("g")
     .attr("class", "brush")
     .call(brush);
+
+var timeout
+function idling() { timeout = null; }
+
+function update() {
+  extent = d3.event.selection
+  if(!extent){
+    if (!timeout) return timeout = setTimeout(idling, 400);
+    x.domain(d3.extent(data, function(d) { return d.Year; }))
+  }else{
+    x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
+    stacked_area_chart.select(".brush").call(brush.move, null)
+  }
+
+  xAxis.transition().duration(2000).call(d3.axisBottom(x).ticks(8))
+  stacked_area_chart
+    .selectAll("path")
+    .transition().duration(2000)
+    .attr("d", area)
+  }
 
 })
