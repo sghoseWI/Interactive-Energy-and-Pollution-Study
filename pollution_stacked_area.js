@@ -10,11 +10,11 @@ var margin1 = {top: 20, right: 100, bottom: 100, left: 150},
 //Define svg1
 var svg1 = d3.select("#pollution_stacked_area")
   .append("svg")
-    .attr("width", width1 + margin1.left + margin1.right)
-    .attr("height", height1 + margin1.top + margin1.bottom)
+    .attr("width", width1 + margin.left + margin.right)
+    .attr("height", height1 + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin1.left + "," + margin1.top + ")");
+          "translate(" + margin.left + "," + margin.top + ")");
 
 //title1
 var title1 = svg1.append("text")
@@ -22,7 +22,7 @@ var title1 = svg1.append("text")
   .attr("text-anchor", "middle")
   .attr("dy", ".75em")
   .style("font-size", "23px")
-  .text("US Air Pollution by Year");
+  .text("US Air Pollution by Year (Parts per Million)");
 
 //Read Data
 d3.csv("air_pollution_data.csv", function(data) {
@@ -33,7 +33,7 @@ var csv_keys1 = data.columns.slice(1)
 //Set Color Scheme
 var chart_color_set1 = d3.scaleOrdinal()
   .domain(csv_keys1)
-  .range(d3.schemeSet1);
+  .range(d3.schemeSet2);
 
 //Stacked Data of Keys
 var stackedData1 = d3.stack()
@@ -45,7 +45,6 @@ var x1 = d3.scaleLinear()
   .domain(d3.extent(data, function(d) { return d.Year; }))
   .range([ 0, width1 ]);
 
-// var ticks = scale.domain().filter(function(d,i){ return !(i%10); } );
 
 // Add X Axis
 var xAxis1 = svg1.append("g")
@@ -62,8 +61,8 @@ svg1.append("text")
 
 // Add Y axis
 var y1 = d3.scaleLinear()
-  .domain([0, 180])
-  .range([ height1, 0 ]);
+  .domain([2.8, 180])
+  .range([height1, 0 ]);
 svg1.append("g")
   .call(d3.axisLeft(y1).ticks(5))
 
@@ -75,7 +74,7 @@ svg1.append("text")
 .attr("y", -70 )
 .attr("transform", "rotate(-90)")
 .style("text-decoration", "underline")
-.text("US Air Pollution Output (PPM)");
+.text("Total US Air Pollution Output (Parts per Million)");
 
 //Add Source
 svg1.append("text")
@@ -149,7 +148,7 @@ function update1() {
      .attr("x", 10)
      .attr("width", 20)
      .attr("height", 20)
-     .attr("fill","red");
+     .attr("fill","#86C7B0");
 
   svg1.append("text")
      .attr("y", 65)
@@ -162,7 +161,7 @@ function update1() {
     .attr("x", 200)
     .attr("width", 20)
     .attr("height", 20)
-    .attr("fill","blue");
+    .attr("fill","#EF9D75");
 
   svg1.append("text")
     .attr("y", 65)
@@ -175,7 +174,7 @@ function update1() {
       .attr("x", 380)
       .attr("width", 20)
       .attr("height", 20)
-      .attr("fill","green");
+      .attr("fill","#9BA9CE");
 
   svg1.append("text")
     .attr("y", 65)
