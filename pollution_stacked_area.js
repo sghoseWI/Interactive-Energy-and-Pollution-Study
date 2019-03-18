@@ -102,9 +102,12 @@ var brush1 = d3.brushX()
 var stacked_area_chart1 = svg1.append('g')
   .attr("clip-path", "url(#clipping)")
 
+//console log data here and after stack again -- see if right data is being passed
+console.log("Pollution Log Area")
+console.log(data)
 //Area Variable
 var area1 = d3.area()
-  .x1(function(d) { return x1(d.data.Year); })
+  .x(function(d) { return x1(d.data.Year); })
   .y0(function(d) { return y1(d[0]); })
   .y1(function(d) { return y1(d[1]); })
 
@@ -123,6 +126,9 @@ stacked_area_chart1
   .append("g")
     .attr("class", "brush")
     .call(brush1);
+
+console.log("Pollution Log Stacked")
+console.log(data)
 
 var timeout1
 function idling() { timeout = null; }

@@ -101,6 +101,9 @@ var brush = d3.brushX()
 var stacked_area_chart = svg.append('g')
   .attr("clip-path", "url(#clipping)")
 
+  console.log("Coal Energy Log Area")
+  console.log(data)
+
 //Area Variable
 var area = d3.area()
   .x(function(d) { return x(d.data.Year); })
@@ -116,6 +119,9 @@ stacked_area_chart
     .attr("class", function(d) { return "myArea " + d.key })
     .style("fill", function(d) { return chart_color_set(d.key); })
     .attr("d", area)
+
+console.log("Coal Energy Log Stacked")
+console.log(data)
 
 stacked_area_chart
   .append("g")
