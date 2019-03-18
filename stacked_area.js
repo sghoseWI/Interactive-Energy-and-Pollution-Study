@@ -1,4 +1,5 @@
 //Referenced: https://bl.ocks.org/EfratVil/d956f19f2e56a05c31fb6583beccfda7,
+//Textbook: Interactive Data Visualization for the Web by Scott Murray
 //https://www.d3-graph-gallery.com/graph/stackedarea_template.html,
 //https://github.com/d3/d3-scale-chromatic
 
@@ -44,8 +45,6 @@ var stackedData = d3.stack()
 var x = d3.scaleLinear()
   .domain(d3.extent(data, function(d) { return d.Year; }))
   .range([ 0, width ]);
-
-// var ticks = scale.domain().filter(function(d,i){ return !(i%10); } );
 
 // Add X Axis
 var xAxis = svg.append("g")

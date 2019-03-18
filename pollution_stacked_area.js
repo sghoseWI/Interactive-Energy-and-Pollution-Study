@@ -1,4 +1,5 @@
 //Referenced: https://bl.ocks.org/EfratVil/d956f19f2e56a05c31fb6583beccfda7,
+//Textbook: Interactive Data Visualization for the Web by Scott Murray
 //https://www.d3-graph-gallery.com/graph/stackedarea_template.html,
 //https://github.com/d3/d3-scale-chromatic
 
@@ -106,6 +107,7 @@ var area1 = d3.area()
   .x1(function(d) { return x1(d.data.Year); })
   .y0(function(d) { return y1(d[0]); })
   .y1(function(d) { return y1(d[1]); })
+
 
 //Build Stacked Area Chart
 stacked_area_chart1
