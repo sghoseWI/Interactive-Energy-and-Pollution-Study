@@ -5,7 +5,7 @@
 
 //Set Margins
 var margin = {top: 20, right: 100, bottom: 100, left: 150},
-    width = 1200 - margin.left - margin.right,
+    width = 1150 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
 //Define SVG
@@ -50,6 +50,7 @@ var x = d3.scaleLinear()
 var xAxis = svg.append("g")
   .attr("transform", "translate(0," + height + ")")
   .call(d3.axisBottom(x).ticks(15));
+
 
 // Add X Axis Label
 svg.append("text")
@@ -117,10 +118,17 @@ stacked_area_chart
     .style("fill", function(d) { return chart_color_set(d.key); })
     .attr("d", area)
 
+
 stacked_area_chart
   .append("g")
     .attr("class", "brush")
     .call(brush);
+
+
+  // Define the div for the tooltip
+  var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 var timeout
 function idling() { timeout = null; }

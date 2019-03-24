@@ -5,7 +5,7 @@
 
 //Set Margins
 var margin1 = {top: 20, right: 100, bottom: 100, left: 150},
-    width1 = 1200 - margin.left - margin.right,
+    width1 = 1150 - margin.left - margin.right,
     height1 = 700 - margin.top - margin.bottom;
 
 //Define svg1
