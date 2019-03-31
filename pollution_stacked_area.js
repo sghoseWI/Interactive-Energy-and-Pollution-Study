@@ -4,22 +4,22 @@
 //https://github.com/d3/d3-scale-chromatic
 
 //Set Margins
-var margin1 = {top: 20, right: 100, bottom: 100, left: 150},
-    width1 = 1150 - margin.left - margin.right,
-    height1 = 700 - margin.top - margin.bottom;
+var margin_pollution = {top: 20, right: 100, bottom: 100, left: 150},
+    width_pollution = 1150 - margin.left - margin.right,
+    height_pollution = 700 - margin.top - margin.bottom;
 
-//Define svg1
-var svg1 = d3.select("#pollution_stacked_area")
+//Define SVG
+var svg_pollution = d3.select("#pollution_stacked_area")
   .append("svg")
-    .attr("width", width1 + margin.left + margin.right)
-    .attr("height", height1 + margin.top + margin.bottom)
+    .attr("width", width_pollution + margin.left + margin.right)
+    .attr("height", height_pollution + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-//title1
-var title1 = svg1.append("text")
-  .attr("x",width1 / 2)
+//Title
+var title_pollution = svg_pollution.append("text")
+  .attr("x",width_pollution / 2)
   .attr("text-anchor", "middle")
   .attr("dy", ".75em")
   .style("font-size", "23px")
@@ -29,166 +29,198 @@ var title1 = svg1.append("text")
 d3.csv("air_pollution_data.csv", function(data) {
 
 //Format Year to Remove Commas
-var format_year1 = d3.timeParse("%Y");
+var format_year_pollution = d3.timeParse("%Y");
 
 data.forEach(function(d) {
-d.Year = format_year1(d.Year);
+d.Year = format_year_pollution(d.Year);
 });
 
 //Get Keys from Data
-var csv_keys1 = data.columns.slice(1)
+var csv_keys_pollution = data.columns.slice(1)
 
 //Set Color Scheme
-var chart_color_set1 = d3.scaleOrdinal()
-  .domain(csv_keys1)
+var chart_color_set_pollution = d3.scaleOrdinal()
+  .domain(csv_keys_pollution)
   .range(d3.schemeSet2);
 
 //Stacked Data of Keys
-var stackedData1 = d3.stack()
-  .keys(csv_keys1)
+var stackedData_pollution = d3.stack()
+  .keys(csv_keys_pollution)
   (data)
 
 // Add X Variable
-var x1 = d3.scaleTime()
+var x_pollution = d3.scaleTime()
   .domain(d3.extent(data, function(d) { return d.Year; }))
-  .range([ 0, width1 ]);
-
+  .range([ 0, width_pollution ]);
 
 // Add X Axis
-var xAxis1 = svg1.append("g")
-  .attr("transform", "translate(0," + height1 + ")")
-  .call(d3.axisBottom(x1).ticks(15));
+var xAxis_pollution = svg_pollution.append("g")
+  .attr("transform", "translate(0," + height_pollution + ")")
+  .call(d3.axisBottom(x_pollution).ticks(15));
+
 
 // Add X Axis Label
-svg1.append("text")
+svg_pollution.append("text")
     .attr("text-anchor", "end")
-    .attr("x", width1/2)
-    .attr("y", height1+40 )
+    .attr("x", width_pollution/2)
+    .attr("y", height_pollution+40 )
     .style("text-decoration", "underline")
     .text("Year");
 
 // Add Y axis
-var y1 = d3.scaleLinear()
+var y_pollution = d3.scaleLinear()
   .domain([2.8, 180])
-  .range([height1, 0 ]);
-svg1.append("g")
-  .call(d3.axisLeft(y1).ticks(5))
+  .range([ height_pollution, 0 ]);
+svg_pollution.append("g")
+  .call(d3.axisLeft(y_pollution).ticks(5))
 
 // Add Y Axis label
-svg1.append("text")
+svg_pollution.append("text")
 .attr("class", "y label")
 .attr("text-anchor", "middle")
-.attr("x", 70- (height1/ 2))
+.attr("x", 70- (height_pollution/ 2))
 .attr("y", -70 )
 .attr("transform", "rotate(-90)")
 .style("text-decoration", "underline")
-.text("Total US Air Pollution Output (Parts per Million)");
+.text("US Coal-based Energy Production (Gigawatts)");
 
 //Add Source
-svg1.append("text")
-  .text("Source: US Environmental Protection Agency")
-  .attr("x", width1/1.5 - 50)
-  .attr("y", height1+70 )
+svg_pollution.append("text")
+  .text("Source: US Energy Information Administration")
+  .attr("x", width_pollution/1.5 - 50)
+  .attr("y", height_pollution+70 )
 ;
 
 // Clipping of Data for Filtering
-var clipping1 = svg1.append("defs").append("svg:clipPath")
+var clipping_pollution = svg_pollution.append("defs").append("svg:clipPath")
     .attr("id", "clipping")
     .append("svg:rect")
-    .attr("width", width1 )
-    .attr("height", height1 )
+    .attr("width", width_pollution )
+    .attr("height", height_pollution )
     .attr("x", 0)
     .attr("y", 0);
 
 // Selecting Brush Range -- then Call Update Function
-var brush1 = d3.brushX()
-    .extent( [ [0,0], [width1,height1] ] )
-    .on("end", update1)
+var brush_pollution = d3.brushX()
+    .extent( [ [0,0], [width_pollution,height_pollution] ] )
+    .on("end", update_pollution)
 
-//Stacked Area Chart Clipping of svg1
-var stacked_area_chart1 = svg1.append('g')
+//Stacked Area Chart Clipping of SVG
+var pollution_stacked_area = svg_pollution.append('g')
   .attr("clip-path", "url(#clipping)")
 
 //Area Variable
-var area1 = d3.area()
-  .x(function(d) { return x1(d.data.Year); })
-  .y0(function(d) { return y1(d[0]); })
-  .y1(function(d) { return y1(d[1]); })
-
+var area_pollution = d3.area()
+  .x(function(d) { return x_pollution(d.data.Year); })
+  .y0(function(d) { return y_pollution(d[0]); })
+  .y1(function(d) { return y_pollution(d[1]); })
 
 //Build Stacked Area Chart
-stacked_area_chart1
+pollution_stacked_area
   .selectAll("mylayers")
-  .data(stackedData1)
+  .data(stackedData_pollution)
   .enter()
   .append("path")
     .attr("class", function(d) { return "myArea " + d.key })
-    .style("fill", function(d) { return chart_color_set1(d.key); })
-    .attr("d", area1)
+    .style("fill", function(d) { return chart_color_set_pollution(d.key); })
+    .attr("d", area_pollution)
 
-stacked_area_chart1
+
+pollution_stacked_area
   .append("g")
     .attr("class", "brush")
-    .call(brush1);
+    .call(brush_pollution);
 
-var timeout1
-function idling() { timeout = null; }
 
-function update1() {
-  extent1 = d3.event.selection
-  if(!extent1){
-    if (!timeout1) return timeout1 = setTimeout(idling, 400);
-    x1.domain(d3.extent(data, function(d) { return d.Year; }))
+  // Define the div for the tooltip
+  var div_pollution = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+var timeout_pollution
+function idling() { timeout_pollution = null; }
+
+function update_pollution() {
+  extent_pollution = d3.event.selection
+  if(!extent_pollution){
+    if (!timeout_pollution) return timeout_pollution = setTimeout(idling, 400);
+    x_pollution.domain(d3.extent(data, function(d) { return d.Year; }))
   }else{
-    x1.domain([ x1.invert(extent1[0]), x1.invert(extent1[1]) ])
-    stacked_area_chart1.select(".brush").call(brush1.move, null)
+    x_pollution.domain([ x_pollution.invert(extent_pollution[0]), x_pollution.invert(extent_pollution[1]) ])
+    pollution_stacked_area.select(".brush").call(brush_pollution.move, null)
   }
 
-  xAxis1.transition().duration(800).call(d3.axisBottom(x1).ticks(8))
-  stacked_area_chart1
+  xAxis_pollution.transition().duration(800).call(d3.axisBottom(x_pollution).ticks(8))
+  pollution_stacked_area
     .selectAll("path")
     .transition().duration(800)
-    .attr("d", area1)
+    .attr("d", area_pollution)
   }
 
   //Legend rectangles and text
-  svg1.append("rect")
+  svg_pollution.append("rect")
      .attr("y", 50)
      .attr("x", 10)
      .attr("width", 20)
      .attr("height", 20)
-     .attr("fill","#86C7B0");
+     .attr("fill","#777");
 
-  svg1.append("text")
+  svg_pollution.append("text")
      .attr("y", 65)
      .attr("x", 40)
      .style("font-size", "12px")
-     .text("Carbon Monoxide (CO)");
+     .text("Heat and Power (Commercial)");
 
-  svg1.append("rect")
+  svg_pollution.append("rect")
     .attr("y", 50)
     .attr("x", 200)
     .attr("width", 20)
     .attr("height", 20)
-    .attr("fill","#EF9D75");
+    .attr("fill","#5287BB");
 
-  svg1.append("text")
+  svg_pollution.append("text")
     .attr("y", 65)
     .attr("x", 230)
     .style("font-size", "12px")
-    .text("Nitrogen Oxide (NOx)");
+    .text("Heat and Power (Electric)");
 
-    svg1.append("rect")
+    svg_pollution.append("rect")
       .attr("y", 50)
       .attr("x", 380)
       .attr("width", 20)
       .attr("height", 20)
-      .attr("fill","#9BA9CE");
+      .attr("fill","#70B660");
 
-  svg1.append("text")
+  svg_pollution.append("text")
     .attr("y", 65)
     .attr("x", 410)
     .style("font-size", "12px")
-    .text("Sulfur Dioxide (SO2)");
+    .text("Heat and Power (Industrial)");
+
+    svg_pollution.append("rect")
+      .attr("y", 50)
+      .attr("x", 560)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill","#985CA8");
+
+    svg_pollution.append("text")
+      .attr("y", 65)
+      .attr("x", 590)
+      .style("font-size", "12px")
+      .text("Electric Generators (Utilities)")
+
+    svg_pollution.append("rect")
+      .attr("y", 50)
+      .attr("x", 740)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill","orange");
+
+    svg_pollution.append("text")
+      .attr("y", 65)
+      .attr("x", 770)
+      .style("font-size", "12px")
+      .text("Electric Generators (Independent Producers)");
 
 })
