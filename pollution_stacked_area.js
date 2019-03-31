@@ -159,68 +159,42 @@ function update_pollution() {
 
   //Legend rectangles and text
   svg_pollution.append("rect")
-     .attr("y", 50)
-     .attr("x", 10)
-     .attr("width", 20)
-     .attr("height", 20)
-     .attr("fill","#777");
+   .attr("y", 50)
+   .attr("x", 10)
+   .attr("width", 20)
+   .attr("height", 20)
+   .attr("fill","#86C7B0");
 
-  svg_pollution.append("text")
-     .attr("y", 65)
-     .attr("x", 40)
-     .style("font-size", "12px")
-     .text("Heat and Power (Commercial)");
+svg_pollution.append("text")
+   .attr("y", 65)
+   .attr("x", 40)
+   .style("font-size", "12px")
+   .text("Carbon Monoxide (CO)");
+
+svg_pollution.append("rect")
+  .attr("y", 50)
+  .attr("x", 200)
+  .attr("width", 20)
+  .attr("height", 20)
+  .attr("fill","#EF9D75");
+
+svg_pollution.append("text")
+  .attr("y", 65)
+  .attr("x", 230)
+  .style("font-size", "12px")
+  .text("Nitrogen Oxide (NOx)");
 
   svg_pollution.append("rect")
     .attr("y", 50)
-    .attr("x", 200)
+    .attr("x", 380)
     .attr("width", 20)
     .attr("height", 20)
-    .attr("fill","#5287BB");
+    .attr("fill","#9BA9CE");
 
-  svg_pollution.append("text")
-    .attr("y", 65)
-    .attr("x", 230)
-    .style("font-size", "12px")
-    .text("Heat and Power (Electric)");
-
-    svg_pollution.append("rect")
-      .attr("y", 50)
-      .attr("x", 380)
-      .attr("width", 20)
-      .attr("height", 20)
-      .attr("fill","#70B660");
-
-  svg_pollution.append("text")
-    .attr("y", 65)
-    .attr("x", 410)
-    .style("font-size", "12px")
-    .text("Heat and Power (Industrial)");
-
-    svg_pollution.append("rect")
-      .attr("y", 50)
-      .attr("x", 560)
-      .attr("width", 20)
-      .attr("height", 20)
-      .attr("fill","#985CA8");
-
-    svg_pollution.append("text")
-      .attr("y", 65)
-      .attr("x", 590)
-      .style("font-size", "12px")
-      .text("Electric Generators (Utilities)")
-
-    svg_pollution.append("rect")
-      .attr("y", 50)
-      .attr("x", 740)
-      .attr("width", 20)
-      .attr("height", 20)
-      .attr("fill","orange");
-
-    svg_pollution.append("text")
-      .attr("y", 65)
-      .attr("x", 770)
-      .style("font-size", "12px")
-      .text("Electric Generators (Independent Producers)");
+svg_pollution.append("text")
+  .attr("y", 65)
+  .attr("x", 410)
+  .style("font-size", "12px")
+  .text("Sulfur Dioxide (SO2)");
 
 })
