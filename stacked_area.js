@@ -28,6 +28,12 @@ var title = svg.append("text")
 //Read Data
 d3.csv("eia_total_coal_electricity_output.csv", function(data) {
 
+var format_year = d3.timeParse("%Y");
+
+data.forEach(function(d) {
+d.Year = format_year(d.Year);
+});
+
 //Get Keys from Data
 var csv_keys = data.columns.slice(1)
 
@@ -42,7 +48,7 @@ var stackedData = d3.stack()
   (data)
 
 // Add X Variable
-var x = d3.scaleLinear()
+var x = d3.scaleTime()
   .domain(d3.extent(data, function(d) { return d.Year; }))
   .range([ 0, width ]);
 

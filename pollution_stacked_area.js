@@ -28,6 +28,13 @@ var title1 = svg1.append("text")
 //Read Data
 d3.csv("air_pollution_data.csv", function(data) {
 
+//Format Year to Remove Commas
+var format_year1 = d3.timeParse("%Y");
+
+data.forEach(function(d) {
+d.Year = format_year1(d.Year);
+});
+
 //Get Keys from Data
 var csv_keys1 = data.columns.slice(1)
 
@@ -42,7 +49,7 @@ var stackedData1 = d3.stack()
   (data)
 
 // Add X Variable
-var x1 = d3.scaleLinear()
+var x1 = d3.scaleTime()
   .domain(d3.extent(data, function(d) { return d.Year; }))
   .range([ 0, width1 ]);
 
