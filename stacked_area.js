@@ -28,6 +28,7 @@ var title = svg.append("text")
 //Read Data
 d3.csv("eia_total_coal_electricity_output.csv", function(data) {
 
+//Format Year to Remove Commas
 var format_year = d3.timeParse("%Y");
 
 data.forEach(function(d) {

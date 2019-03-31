@@ -14,7 +14,7 @@ var svg_bar = d3.select("#bar_chart")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Load Data
-d3.csv("electricity_cost.csv", function(data) {
+d3.csv("electricity_cost_old.csv", function(data) {
 //X Axis
 var x_bar = d3.scaleBand()
   .range([ 0, width_bar ])
@@ -56,8 +56,8 @@ svg_bar.selectAll("mybar")
     .attr("height", function(d) { return height_bar - y_bar(d.Value); })
     .attr("fill", "#935FB2")
     .on("mouseover", function(d) {
-          var x_val_tooltip = d3.select(this).attr("x");
-					var y_val_tooltip = d3.select(this).attr("y");
+          var x_val_tooltip = x_bar(d.State);
+					var y_val_tooltip = y_bar(d.Value);
 					//Tooltip
 					svg_bar.append("text")
 					   .attr("id", "tooltip")
@@ -70,7 +70,6 @@ svg_bar.selectAll("mybar")
 			   })
 			   .on("mouseout", function() {
 					d3.select("#tooltip").remove();
-
 			   });
 
 //Add Source
@@ -80,7 +79,15 @@ svg_bar.append("text")
   .attr("y", height_bar+90 );
 })
 
+//Add Title
+var bar_pollution = svg_bar.append("text")
+  .attr("x",width_pollution / 2)
+  .attr("text-anchor", "middle")
+  .attr("dy", ".75em")
+  .style("font-size", "23px")
+  .text("US Cost of Electricity by State (2000)");
 
+//Function to Reveal 2017 Bar Chart
 function switch_data() {
     //Set Margins
     var margin_bar = {top: 20, right: 100, bottom: 100, left: 150},
@@ -96,7 +103,7 @@ function switch_data() {
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.csv("electricity_cost_old.csv", function(error, data) {
+    d3.csv("electricity_cost.csv", function(error, data) {
       var x_bar = d3.scaleBand()
         .range([ 0, width_bar ])
         .domain(data.map(function(d) { return d.State; }))
@@ -135,13 +142,37 @@ function switch_data() {
           .attr("y", function(d) { return y_bar(d.Value); })
           .attr("width", x_bar.bandwidth())
           .attr("height", function(d) { return height_bar - y_bar(d.Value); })
-          .attr("fill", "orange")
+          .attr("fill", "#FC8D62")
+          .on("mouseover", function(d) {
+                var x_val_tooltip = d3.select(this).attr("x");
+      					var y_val_tooltip = d3.select(this).attr("y");
+      					//Tooltip
+      					svg_bar.append("text")
+      					   .attr("id", "tooltip")
+      					   .attr("x", x_val_tooltip)
+      					   .attr("y", y_val_tooltip)
+      					   .attr("text-anchor", "middle")
+      					   .attr("font-size", "25px")
+      					   .attr("fill", "black")
+      					   .text(d);
+      			   })
+      			   .on("mouseout", function() {
+      					d3.select("#tooltip").remove();
+      			   });
 
       //Add Source
       svg_bar.append("text")
-        .text("Source: Stanford DeepSolar Project")
+        .text("Source: US Energy Information Administration")
         .attr("x", width_bar/1.5 - 50)
         .attr("y", height_bar+90 );
+
+      //Add Title
+      var bar_pollution = svg_bar.append("text")
+        .attr("x",width_pollution / 2)
+        .attr("text-anchor", "middle")
+        .attr("dy", ".75em")
+        .style("font-size", "23px")
+        .text("US Cost of Electricity by State (2017)");
 
     });
 }
