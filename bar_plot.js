@@ -55,6 +55,23 @@ svg_bar.selectAll("mybar")
     .attr("width", x_bar.bandwidth())
     .attr("height", function(d) { return height_bar - y_bar(d.Value); })
     .attr("fill", "#935FB2")
+    .on("mouseover", function(d) {
+          var x_val_tooltip = d3.select(this).attr("x");
+					var y_val_tooltip = d3.select(this).attr("y");
+					//Tooltip
+					svg_bar.append("text")
+					   .attr("id", "tooltip")
+					   .attr("x", x_val_tooltip)
+					   .attr("y", y_val_tooltip)
+					   .attr("text-anchor", "middle")
+					   .attr("font-size", "25px")
+					   .attr("fill", "black")
+					   .text(d);
+			   })
+			   .on("mouseout", function() {
+					d3.select("#tooltip").remove();
+
+			   });
 
 //Add Source
 svg_bar.append("text")
@@ -62,6 +79,7 @@ svg_bar.append("text")
   .attr("x", width_bar/1.5 - 50)
   .attr("y", height_bar+90 );
 })
+
 
 function switch_data() {
     //Set Margins
