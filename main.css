@@ -8,30 +8,62 @@ body {
   border-right:1px solid #000;
   border-bottom: 2px dashed #000;
   border-top: 1px solid #000;
+  border-left:1px solid #000;
+}
+
+#stacked_area_text {
+  float:right;
+  vertical-align: middle;
+  background-color: #F4F3FF;
+  text-align: center;
+  border-bottom: 2px dashed #000;
+}
+
+#pollution_text {
+  float:right;
+  vertical-align: middle;
+  background-color: #F4F3FF;
+  text-align: center;
+  border-bottom: 2px dashed #000;
+}
+
+#bar_text {
+  float:right;
+  vertical-align: middle;
+  background-color: #F4F3FF;
+  text-align: center;
+  border-bottom: 2px dashed #000;
+}
+
+#bar_text_new {
+  float:right;
+  vertical-align: middle;
+  background-color: #F4F3FF;
+  text-align: center;
+  border-bottom: 2px dashed #000;
 }
 
 #pollution_stacked_area {
   float:right;
   background-color: #F4F3FF;
   border-right:1px solid #000;
+  border-left:1px solid #000;
   border-bottom: 2px dashed #000;
-  border-top: 1px solid #000;
 }
 
 #bar_chart {
   float:right;
   background-color:#FFF4F5;
   border-right:1px solid #000;
-  border-top: 2px dashed #000;
-
+  border-left:1px solid #000;
 }
 
 #bar_chart_new {
   float:right;
-  background-color:#FFF4F5;
+  background-color:#F4F3FF;
   border-right:1px solid #000;
   border-top: 2px dashed #000;
-
+  border-left:1px solid #000;
 }
 
 #sources {
@@ -66,6 +98,26 @@ body {
 .class_barchart_new {
   float:left;
 }*/
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.container_pollution {
+  display: flex;
+  flex-direction: row;
+}
+
+.container_bar {
+  display: flex;
+  flex-direction: row;
+}
+
+.container_bar_new {
+  display: flex;
+  flex-direction: row;
+}
 
 h1 {
   font-size: 40px;

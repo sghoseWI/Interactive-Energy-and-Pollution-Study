@@ -54,7 +54,7 @@ svg_bar_new.selectAll("mybar")
     .attr("y", function(d) { return y_bar_new(d.Value); })
     .attr("width", x_bar_new.bandwidth())
     .attr("height", function(d) { return height_bar_new - y_bar_new(d.Value); })
-    .attr("fill", "#935FB2")
+    .attr("fill", "#FC8D62")
     .on("mouseover", function(d) {
           var x_val_tooltip_new = x_bar_new(d.State);
 					var y_val_tooltip_new = y_bar_new(d.Value);
@@ -75,7 +75,7 @@ svg_bar_new.selectAll("mybar")
 
 //Add Source
 svg_bar_new.append("text")
-  .text("Source: Stanford DeepSolar Project")
+  .text("Source: US Energy Information Administration")
   .attr("x", width_bar_new/1.5 - 50)
   .attr("y", height_bar_new+90 );
 })
