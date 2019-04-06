@@ -1,3 +1,5 @@
+/*referenced: https://thoughtbot.com/blog/positioning*/
+
 body {
   background-color: #D1E3DF;
 }
@@ -16,7 +18,9 @@ body {
   vertical-align: middle;
   background-color: #F4F3FF;
   text-align: center;
-  border-bottom: 2px dashed #000;
+  border-left:1px solid #000;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
 }
 
 #pollution_text {
@@ -24,7 +28,8 @@ body {
   vertical-align: middle;
   background-color: #F4F3FF;
   text-align: center;
-  border-bottom: 2px dashed #000;
+  border-left:1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 #bar_text {
@@ -32,7 +37,8 @@ body {
   vertical-align: middle;
   background-color: #F4F3FF;
   text-align: center;
-  border-bottom: 2px dashed #000;
+  border-left:1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 #bar_text_new {
@@ -40,7 +46,8 @@ body {
   vertical-align: middle;
   background-color: #F4F3FF;
   text-align: center;
-  border-bottom: 2px dashed #000;
+  border-left:1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 #pollution_stacked_area {
@@ -64,14 +71,13 @@ body {
   border-right:1px solid #000;
   border-top: 2px dashed #000;
   border-left:1px solid #000;
+  border-bottom:1px solid #000;
 }
 
 #sources {
   float:bottom;
   background-color:#FFF4F5;
   border-right:1px solid #000;
-  border-top: 2px dashed #000;
-
 }
 
 /*input[type=button]{
@@ -117,6 +123,34 @@ body {
 .container_bar_new {
   display: flex;
   flex-direction: row;
+}
+
+p.paragraph1 {
+  margin-top: 160px;
+  margin-right: 20px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+p.paragraph2 {
+  margin-top: 160px;
+  margin-right: 20px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+p.paragraph3 {
+  margin-top: 160px;
+  margin-right: 20px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+p.paragraph4 {
+  margin-top: 160px;
+  margin-right: 20px;
+  line-height: 30px;
+  vertical-align: middle;
 }
 
 h1 {
