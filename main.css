@@ -3,7 +3,7 @@ body {
 }
 
 #stacked_area_plot {
-  float:left;
+  float:right;
   background-color: #FFF4F5;
   border-right:1px solid #000;
   border-bottom: 2px dashed #000;
@@ -11,41 +11,61 @@ body {
 }
 
 #pollution_stacked_area {
-  float:left;
+  float:right;
   background-color: #F4F3FF;
   border-right:1px solid #000;
+  border-bottom: 2px dashed #000;
+  border-top: 1px solid #000;
 }
 
 #bar_chart {
-  float:left;
+  float:right;
   background-color:#FFF4F5;
   border-right:1px solid #000;
   border-top: 2px dashed #000;
 
 }
 
-input[type=button]{
+#bar_chart_new {
+  float:right;
+  background-color:#FFF4F5;
+  border-right:1px solid #000;
+  border-top: 2px dashed #000;
+
+}
+
+#sources {
+  float:bottom;
+  background-color:#FFF4F5;
+  border-right:1px solid #000;
+  border-top: 2px dashed #000;
+
+}
+
+/*input[type=button]{
   background-color: #4CAF50;
   border: 1px solid #000;
   color: white;
   padding: 16px 32px;
   margin: 4px 2px;
   font-size: 15px;
-}
-
+}*/
 
 .class_energy {
-  float:right;
+  float:left;
 }
 
 .class_pollution {
-  float:right;
+  float:left;
 }
 
-.class_barchart {
-  float:right;
-
+/*.class_barchart {
+  float:left;
 }
+
+.class_barchart_new {
+  float:left;
+}*/
 
 h1 {
   font-size: 40px;
