@@ -88,11 +88,3 @@ var bar_pollution = svg_bar.append("text")
   .attr("dy", ".75em")
   .style("font-size", "23px")
   .text("US Cost of Electricity by State (2000)");
-//
-// d3.select(#update_button).on("click", function(){
-//   switch_data();
-// }
-//
-// d3.select(#update_button){
-//   .attr("class", "Disabled")
-// }

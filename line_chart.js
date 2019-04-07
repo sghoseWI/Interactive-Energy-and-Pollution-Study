@@ -113,19 +113,6 @@
             else {
               return '#8DA0CB'}
           })
-      // })
-      // .on('mouseout', function (d) {
-      //   d3.select(this)
-      //     .transition()
-      //     .duration(500)
-      //     .attr('r',10)
-      //     .attr('stroke-width',1)
-      //     .style('fill', function(d) {
-      //        if ((d[3] =="Below Average")) {
-      //          return "#FC8D62"}
-      //        else {
-      //          return '#935FB2'}
-      //      })
       })
      .attr("cx", function(d) {
         return xScale_line(d[0]);
