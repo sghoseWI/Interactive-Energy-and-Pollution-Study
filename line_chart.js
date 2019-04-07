@@ -102,24 +102,30 @@
      .style('fill',"none")
      .style('stroke',"black")
      .on('mouseover', function (d) {
-        d3.select(this)
-          .transition()
-          .duration(10)
-          .attr('r',20)
-          .attr('stroke-width',3)
-      })
-      .on('mouseout', function (d) {
-        d3.select(this)
-          .transition()
-          .duration(500)
-          .attr('r',10)
-          .attr('stroke-width',1)
-          .style('fill', function(d) {
-             if ((d[3] =="Below Average")) {
-               return "#FC8D62"}
-             else {
-               return '#935FB2'}
-           })
+       d3.select(this)
+         .transition()
+         .duration(100)
+         .attr('r',10)
+         .attr('stroke-width',1)
+         .style('fill', function(d) {
+            if ((d[3] =="Below Average")) {
+              return "#FC8D62"}
+            else {
+              return '#935FB2'}
+          })
+      // })
+      // .on('mouseout', function (d) {
+      //   d3.select(this)
+      //     .transition()
+      //     .duration(500)
+      //     .attr('r',10)
+      //     .attr('stroke-width',1)
+      //     .style('fill', function(d) {
+      //        if ((d[3] =="Below Average")) {
+      //          return "#FC8D62"}
+      //        else {
+      //          return '#935FB2'}
+      //      })
       })
      .attr("cx", function(d) {
         return xScale_line(d[0]);
