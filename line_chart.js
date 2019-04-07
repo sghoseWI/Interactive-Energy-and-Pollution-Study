@@ -104,14 +104,14 @@
      .on('mouseover', function (d) {
        d3.select(this)
          .transition()
-         .duration(100)
+         .duration(10)
          .attr('r',10)
          .attr('stroke-width',1)
          .style('fill', function(d) {
             if ((d[3] =="Below Average")) {
               return "#FC8D62"}
             else {
-              return '#935FB2'}
+              return '#8DA0CB'}
           })
       // })
       // .on('mouseout', function (d) {
@@ -208,7 +208,7 @@
     .attr("x", 150)
     .attr("width", 20)
     .attr("height", 20)
-    .attr("fill","#935FB2");
+    .attr("fill","#8DA0CB");
 
   svg_line.append("text")
     .attr("y", 215)
@@ -218,6 +218,6 @@
 
     //Add Source
     svg_line.append("text")
-      .text("Source: US Environmental Protection Agency + Stanford DeepSolar Project")
-      .attr("x", w_line-600)
+      .text("Source: US Environmental Protection Agency + Stanford DeepSolar Project + The Open PV Project")
+      .attr("x", w_line-800)
       .attr("y", (h_line-20));
