@@ -189,29 +189,29 @@
      .attr("x", 150)
      .attr("width", 20)
      .attr("height", 20)
-     .attr("fill","#935FB2");
+     .attr("fill","#FC8D62");
 
   svg_line.append("text")
      .attr("y", 245)
      .attr("x", 180)
      .style("font-size", "14px")
-     .text("Above US Average: Total Solar Panels");
+     .text("Below US Average: Total Solar Panels");
 
   svg_line.append("rect")
     .attr("y", 200)
     .attr("x", 150)
     .attr("width", 20)
     .attr("height", 20)
-    .attr("fill","#FC8D62");
+    .attr("fill","#935FB2");
 
   svg_line.append("text")
     .attr("y", 215)
     .attr("x", 180)
     .style("font-size", "14px")
-    .text("Below US Average: Total Solar Panels");
+    .text("Above US Average: Total Solar Panels");
 
     //Add Source
     svg_line.append("text")
-      .text("Source: US Environmental Protection Agency")
-      .attr("x", w_line-440)
+      .text("Source: US Environmental Protection Agency + Stanford DeepSolar Project")
+      .attr("x", w_line-600)
       .attr("y", (h_line-20));
