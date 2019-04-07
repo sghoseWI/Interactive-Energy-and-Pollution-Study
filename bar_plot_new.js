@@ -66,7 +66,7 @@ svg_bar_new.selectAll("mybar")
 					   .attr("y", y_val_tooltip_new)
              .attr("dy", -20)
 					   .attr("text-anchor", "middle")
-					   .attr("font-size", "25px")
+					   .attr("font-size", "20px")
 					   .attr("fill", "black")
 					   .text(d.State + " " + d.Value);
 			   })

@@ -2,6 +2,7 @@
 
 body {
   background-color: #D1E3DF;
+  /*background-color: darksalmon;*/
 }
 
 #stacked_area_plot {
@@ -52,7 +53,7 @@ body {
 
 #pollution_stacked_area {
   float:right;
-  background-color: #F4F3FF;
+  background-color: #FFF4F5;
   border-right:1px solid #000;
   border-left:1px solid #000;
   border-bottom: 2px dashed #000;
@@ -67,11 +68,28 @@ body {
 
 #bar_chart_new {
   float:right;
-  background-color:#F4F3FF;
+  background-color:#FFF4F5;
   border-right:1px solid #000;
   border-top: 2px dashed #000;
   border-left:1px solid #000;
-  border-bottom:1px solid #000;
+}
+
+#line_chart {
+  float:right;
+  background-color: #FFF4F5;
+  border-right:1px solid #000;
+  border-bottom: 1px solid #000;
+  border-top: 2px dashed #000;
+  border-left:1px solid #000;
+}
+
+#line_text {
+  float:right;
+  vertical-align: middle;
+  background-color: #F4F3FF;
+  text-align: center;
+  border-left:1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 #sources {
@@ -125,6 +143,11 @@ body {
   flex-direction: row;
 }
 
+.container_line {
+  display: flex;
+  flex-direction: row;
+}
+
 p.paragraph1 {
   margin-top: 160px;
   margin-right: 20px;
@@ -153,7 +176,18 @@ p.paragraph4 {
   vertical-align: middle;
 }
 
+p.paragraph5 {
+  font-size: 18px;
+  margin-top: 160px;
+  margin-right: 20px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
 h1 {
   font-size: 40px;
+}
 
+h4 {
+  font-size: 20px;
 }

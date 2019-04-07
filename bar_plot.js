@@ -15,6 +15,7 @@ var svg_bar = d3.select("#bar_chart")
 
 //Load Data
 d3.csv("electricity_cost_old.csv", function(data) {
+
 //X Axis
 var x_bar = d3.scaleBand()
   .range([ 0, width_bar ])
@@ -65,7 +66,7 @@ svg_bar.selectAll("mybar")
 					   .attr("y", y_val_tooltip)
              .attr("dy", -20)
 					   .attr("text-anchor", "middle")
-					   .attr("font-size", "25px")
+					   .attr("font-size", "20px")
 					   .attr("fill", "black")
 					   .text(d.State + " " + d.Value);
 			   })
