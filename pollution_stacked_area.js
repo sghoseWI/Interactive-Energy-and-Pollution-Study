@@ -82,7 +82,7 @@ svg_pollution.append("text")
 .attr("y", -70 )
 .attr("transform", "rotate(-90)")
 .style("text-decoration", "underline")
-.text("Concentration of Pollutants (Parts per Million)");
+.text("Air Pollutant Emissions (Parts per Million)");
 
 //Add Source
 svg_pollution.append("text")
